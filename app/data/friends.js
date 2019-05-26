@@ -1,4 +1,4 @@
-friendArr = [
+var friendArr = [
 	{
 	"name": "Sora",
 	"photo": "Kuhaku",
@@ -31,4 +31,6 @@ friendArr = [
 					5
 				]
 		}
-]
+];
+
+module.exports = friendArr;
