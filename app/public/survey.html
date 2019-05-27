@@ -3,23 +3,129 @@
 <html>
 
 <head>
-    <meta char="utf-8">
-    <title>Friend Finder Survey</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	<meta char="utf-8">
+	<title>Friend Finder Survey</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 </head>
 
 <body>
+	<div class="jumbotron">
+		<h1 class="display-4">Friend Finder Survey</h1>
+		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+			featured
+			content or information.</p>
+		<hr class="my-4">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
+	</div>
 
+
+		<div class="form-group">
+			<label for="exampleInputEmail1">Name</label>
+			<input type="input" class="form-control" id="name-input" placeholder="John Doe">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Picture</label>
+			<input type="input" class="form-control" id="picture-link-input" placeholder="Paste picture link here">
+		</div>
+		<button type="submit" class="btn btn-success" id="test-sub">Submit</button>
+		<br><br><br>
+		<div class="q-holder">
+			<h2>Question 2</h2>
+			<p>insert question here</p>
+				<select class="form-control" id="q1">
+					<option>1 (Strongly Disagree)</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5 (Strongly Agree)</option>
+				</select>
+		</div>
+		<div class="q-holder">
+				<h2>Question 3</h2>
+				<p>insert question here</p>
+					<select class="form-control" id="q2">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+			</div>
+			<div class="q-holder">
+				<h2>Question 4</h2>
+				<p>insert question here</p>
+					<select class="form-control" id="q3">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+			</div>
+			<div class="q-holder">
+				<h2>Question 5</h2>
+				<p>insert question here</p>
+					<select class="form-control" id="q4">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+			</div>
+			<div class="q-holder">
+				<h2>Question 1</h2>
+				<p>insert question here</p>
+					<select class="form-control" id="q5">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+			</div>
 </body>
-Copy
-<div class="jumbotron">
-  <h1 class="display-4">Friend Finder Survey</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
-</div>>
+<style>
+		body {background-color: darkgray; color: white;}
+		hr {border-color: white;}
+		.jumbotron {background-color: rgb(76, 46, 124);}
+	</style>
+	
+<script>
+		$("#test-sub").on("click", function (event) {
+			event.preventDefault();
+			var preParseAnswers = [];
+			var answersArr = [];
+			preParseAnswers.push($('#q1').val().slice(0,1).trim(), $('#q2').val().slice(0,1).trim(), $('#q3').val().slice(0,1).trim(), $('#q4').val().slice(0,1).trim(), $('#q5').val().slice(0,1).trim())
+			for (let i = 0; i < preParseAnswers.length; i++) {
+				var parsing = parseInt(preParseAnswers[i]);
+				answersArr.push(parsing);
+			}
+
+			console.log(answersArr);
+			var userAnswers = {
+				name: $("#name-input").val().trim(),
+				photo: $("#picture-link-input").val().trim(),
+				scores: answersArr
+			};
+
+		console.log(userAnswers);
+
+		$.post("/api/friends", userAnswers, function(data) {
+			console.log(data)
+        }
+		);
+
+
+
+
+
+
+				
+		});
+	</script>
 </html>

@@ -3,27 +3,54 @@
 <html>
 
 <head>
-    <meta char="utf-8">
-    <title>Friend Finder Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  </head>
+	<meta char="utf-8">
+	<title>Friend Finder Home</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 </head>
 
 <body>
-      <div class="jumbotron">
-      <h1 class="display-4">Hello, world!</h1>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-      <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
-    </div>
+	<div class="jumbotron">
+		<h1 class="display-4"><i class="fas fa-users"></i> Friend Finder</h1>
+		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+			featured content or information.</p>
+		<hr class="my-4">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<a class="btn btn-success btn-lg" href="#" role="button" id="test">Learn more</a>
+	</div>
+
+	<div class="question">
+		<h2>Question 1</h2>
+		<p>insert question here</p>
+		<div class="dropdown" id="drop">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false">
+				Dropdown
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+				<button class="dropdown-item" type="button">1</button>
+				<button class="dropdown-item" type="button">2</button>
+				<button class="dropdown-item" type="button">3</button>
+			</div>
+		</div>
+	</div>
 </body>
 
 <style>
-body {
-	background-color: darkgray;
-}
+	body {background-color: darkgray; color: white;}
+	hr {border-color: white;}
+	.jumbotron {background-color: rgb(76, 46, 124);}
 </style>
+
+<script>
+	$(".submit").on("click", function (event) {
+		event.preventDefault();
+		$("#test").on("click", function () {
+			console.log("test");
+		});
+	});
+</script>
+
 </html>
