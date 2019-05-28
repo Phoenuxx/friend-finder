@@ -31,6 +31,7 @@
 			<label for="exampleInputPassword1">Picture</label>
 			<input type="input" class="form-control" id="picture-link-input" placeholder="Paste picture link here">
 		</div>
+		
 		<button type="submit" class="btn btn-success" id="test-sub">Submit</button>
 		<br><br><br>
 		<div class="q-holder">
@@ -88,11 +89,61 @@
 						<option>5 (Strongly Agree)</option>
 					</select>
 			</div>
+			<!-- The Modal -->
+			<div id="my-modal" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+				  <span class="close">&times;</span>
+				  <span id ="friend-name">Sora</span>
+				  <img src="https://vignette.wikia.nocookie.net/no-game-no-life/images/4/40/View_Gallery.png/revision/latest/scale-to-width-down/350?cb=20171116090049" id="friend-pic" width="800px">
+				  <p>Some text in the Modal..</p>
+				  <p>Some text in the Modal..</p>
+				</div>
+			  
+			  </div>
 </body>
 <style>
 		body {background-color: darkgray; color: white;}
 		hr {border-color: white;}
 		.jumbotron {background-color: rgb(76, 46, 124);}
+		/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 	</style>
 	
 <script>
@@ -106,7 +157,7 @@
 				answersArr.push(parsing);
 			}
 
-			console.log(answersArr);
+			// console.log(answersArr);
 			var userAnswers = {
 				name: $("#name-input").val().trim(),
 				photo: $("#picture-link-input").val().trim(),
@@ -116,10 +167,11 @@
 		console.log(userAnswers);
 
 		$.post("/api/friends", userAnswers, function(data) {
-			console.log(data)
-        }
-		);
-
+			// for (let i = 0; i < data.length; i++) {
+			// console.log(data[i].scores);
+			// }
+        });
+		
 
 
 
@@ -127,5 +179,20 @@
 
 				
 		});
+		var modal = document.getElementById("my-modal");
+		var btn = document.getElementById("test-sub");
+		var span = document.getElementsByClassName("close")[0];
+
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+}
 	</script>
 </html>
