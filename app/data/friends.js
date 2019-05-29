@@ -44,7 +44,7 @@ var friendArr = [
 				]//18
 		},
 	{
-		"name": "Giralt of Rivia,
+		"name": "Giralt of Rivia",
 		"photo": "https://cdn.vox-cdn.com/thumbor/Qf_b1xv1LrELjfID2tAp-tcB3r0=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/58923887/546d27725999ae0d48e3fb012fde485a7aafd066.jpg__0x1500_q85.0.0.jpg",
 		"scores": [
 					5,
