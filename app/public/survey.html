@@ -23,176 +23,275 @@
 	</div>
 
 
-		<div class="form-group">
-			<label for="exampleInputEmail1">Name</label>
-			<input type="input" class="form-control" id="name-input" placeholder="John Doe">
-		</div>
-		<div class="form-group">
-			<label for="exampleInputPassword1">Picture</label>
-			<input type="input" class="form-control" id="picture-link-input" placeholder="Paste picture link here">
-		</div>
-		
-		<button type="submit" class="btn btn-success" id="test-sub">Submit</button>
-		<br><br><br>
-		<div class="q-holder">
-			<h2>Question 2</h2>
-			<p>insert question here</p>
-				<select class="form-control" id="q1">
-					<option>1 (Strongly Disagree)</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5 (Strongly Agree)</option>
-				</select>
-		</div>
-		<div class="q-holder">
-				<h2>Question 3</h2>
-				<p>insert question here</p>
-					<select class="form-control" id="q2">
-						<option>1 (Strongly Disagree)</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5 (Strongly Agree)</option>
-					</select>
-			</div>
-			<div class="q-holder">
-				<h2>Question 4</h2>
-				<p>insert question here</p>
-					<select class="form-control" id="q3">
-						<option>1 (Strongly Disagree)</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5 (Strongly Agree)</option>
-					</select>
-			</div>
-			<div class="q-holder">
-				<h2>Question 5</h2>
-				<p>insert question here</p>
-					<select class="form-control" id="q4">
-						<option>1 (Strongly Disagree)</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5 (Strongly Agree)</option>
-					</select>
-			</div>
-			<div class="q-holder">
-				<h2>Question 1</h2>
-				<p>insert question here</p>
-					<select class="form-control" id="q5">
-						<option>1 (Strongly Disagree)</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5 (Strongly Agree)</option>
-					</select>
-			</div>
-			<!-- The Modal -->
-			<div id="my-modal" class="modal">
+	<div class="form-group">
+		<label for="exampleInputEmail1">Name</label>
+		<input type="input" class="form-control" id="name-input" placeholder="John Doe">
+	</div>
+	<div class="form-group">
+		<label for="exampleInputPassword1">Picture</label>
+		<input type="input" class="form-control" id="picture-link-input" placeholder="Paste picture link here">
+	</div>
 
-				<!-- Modal content -->
-				<div class="modal-content">
-				  <span class="close">&times;</span>
-				  <span id ="friend-name">Sora</span>
-				  <img src="https://vignette.wikia.nocookie.net/no-game-no-life/images/4/40/View_Gallery.png/revision/latest/scale-to-width-down/350?cb=20171116090049" id="friend-pic" width="800px">
-				  <p>Some text in the Modal..</p>
-				  <p>Some text in the Modal..</p>
-				</div>
-			  
-			  </div>
+	<button type="submit" class="btn btn-success" id="test-sub">Submit</button>
+	<br><br><br>
+	<div class="q-holder">
+		<h2>Question 2</h2>
+		<p>insert question here</p>
+		<select class="form-control" id="q1">
+			<option>1 (Strongly Disagree)</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5 (Strongly Agree)</option>
+		</select>
+	</div>
+	<div class="q-holder">
+		<h2>Question 3</h2>
+		<p>insert question here</p>
+		<select class="form-control" id="q2">
+			<option>1 (Strongly Disagree)</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5 (Strongly Agree)</option>
+		</select>
+	</div>
+	<div class="q-holder">
+		<h2>Question 4</h2>
+		<p>insert question here</p>
+		<select class="form-control" id="q3">
+			<option>1 (Strongly Disagree)</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5 (Strongly Agree)</option>
+		</select>
+	</div>
+	<div class="q-holder">
+		<h2>Question 5</h2>
+		<p>insert question here</p>
+		<select class="form-control" id="q4">
+			<option>1 (Strongly Disagree)</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5 (Strongly Agree)</option>
+		</select>
+	</div>
+	<div class="q-holder">
+		<h2>Question 1</h2>
+		<p>insert question here</p>
+		<select class="form-control" id="q5">
+			<option>1 (Strongly Disagree)</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5 (Strongly Agree)</option>
+		</select>
+	</div>
+	<!-- The Modal -->
+	<div id="my-modal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<span id="friend-name"></span>
+			<img src="g/revision/latest/scale-to-width-down/350?cb=20171116090049" id="friend-pic" width="800px">
+		</div>
+
+	</div>
 </body>
 <style>
-		body {background-color: darkgray; color: white;}
-		hr {border-color: white;}
-		.jumbotron {background-color: rgb(76, 46, 124);}
-		/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	body {
+		background-color: darkgray;
+		color: white;
+	}
+
+#friend.name {
+	color: black;
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
-}
+	hr {
+		border-color: white;
+	}
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+	.jumbotron {
+		background-color: rgb(76, 46, 124);
+	}
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-	</style>
-	
+	/* The Modal (background) */
+	.modal {
+		display: none;
+		/* Hidden by default */
+		position: fixed;
+		/* Stay in place */
+		z-index: 1;
+		/* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%;
+		/* Full width */
+		height: 100%;
+		/* Full height */
+		overflow: auto;
+		/* Enable scroll if needed */
+		background-color: rgb(0, 0, 0);
+		/* Fallback color */
+		background-color: rgba(0, 0, 0, 0.4);
+		/* Black w/ opacity */
+	}
+
+	/* Modal Content/Box */
+	.modal-content {
+		background-color: #fefefe;
+		margin: 15% auto;
+		/* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 50%;
+		/* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	.close {
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+</style>
+
 <script>
-		$("#test-sub").on("click", function (event) {
-			event.preventDefault();
-			var preParseAnswers = [];
-			var answersArr = [];
-			preParseAnswers.push($('#q1').val().slice(0,1).trim(), $('#q2').val().slice(0,1).trim(), $('#q3').val().slice(0,1).trim(), $('#q4').val().slice(0,1).trim(), $('#q5').val().slice(0,1).trim())
-			for (let i = 0; i < preParseAnswers.length; i++) {
-				var parsing = parseInt(preParseAnswers[i]);
-				answersArr.push(parsing);
-			}
+	$("#test-sub").on("click", function (event) {
+		event.preventDefault();
+		var friendName = "";
+		var friendPic = "";
+		var bestFriend;
+		var preParseAnswers = [];
+		var answersArr = [];
+		preParseAnswers.push($('#q1').val().slice(0, 1).trim(), $('#q2').val().slice(0, 1).trim(), $('#q3').val().slice(0, 1).trim(), $('#q4').val().slice(0, 1).trim(), $('#q5').val().slice(0, 1).trim())
+		for (let i = 0; i < preParseAnswers.length; i++) {
+			var parsing = parseInt(preParseAnswers[i]);
+			answersArr.push(parsing);
+		}
 
-			// console.log(answersArr);
-			var userAnswers = {
-				name: $("#name-input").val().trim(),
-				photo: $("#picture-link-input").val().trim(),
-				scores: answersArr
-			};
+		// console.log(answersArr);
+		var userAnswers = {
+			name: $("#name-input").val().trim(),
+			photo: $("#picture-link-input").val().trim(),
+			scores: answersArr
+		};
 
 		console.log(userAnswers);
 
-		$.post("/api/friends", userAnswers, function(data) {
-			// for (let i = 0; i < data.length; i++) {
-			// console.log(data[i].scores);
-			// }
-        });
-		
+		$.post("/api/friends", userAnswers, function (data) {
+			var userScores = userAnswers.scores;
+			var userTotal = 0;
+			for (var i = 0; i < userScores.length; i++) {
+				parsedUser = parseInt(userScores[i]);
+				userTotal = userTotal + parsedUser;
+			}
+			console.log("________________ user Total");
+			console.log("user: " + userTotal);
 
+			var friendScores = [];
+			//Loop through friends list
+			for (var i = 0; i < data.length; i++) {
+				var totalScore = 0;
+				//loop through firends[i] scores list to add all of them together
+				for (var j = 0; j < data[i].scores.length - 1; j++) {
+					parsedScore = parseInt(data[i].scores[j]);;
+					totalScore = totalScore + parsedScore;
+				}
+				//push the score to array for select closest result
+				friendScores.push(totalScore);
+			}
+			console.log("________________ friend Total");
+			console.log(friendScores);
 
+			//determines closest friend to user
+			function closest(num, arr) {
+				var curr = arr[0];
+				var diff = Math.abs(num - curr);
+				for (var val = 0; val < arr.length; val++) {
+					var newdiff = Math.abs(num - arr[val]);
+					if (newdiff < diff) {
+						diff = newdiff;
+						curr = arr[val];
+					}
+				}
+			
+				// friendName = data[bestFriend].name;
+				// friendPic = data[bestFriend].photo;
+				return curr;
+			}
 
+			bestFriendIndex = friendScores.indexOf(closest(userTotal, friendScores));
+			bestFriendInfo = data[bestFriendIndex];
+			bestFriendName =data[bestFriendIndex].name; 
+			console.log(bestFriendName);
+			bestFriendPic = data[bestFriendIndex].photo;
+			console.log(bestFriendPic);
+			console.log("bestIndex: " + bestFriendIndex)
+			console.log(bestFriendInfo);
+			// array = [2, 42, 82, 122, 162, 202, 242, 282, 322, 362];
+			// number = 40;
+			console.log("----diff vv")
+			console.log(closest(userTotal, friendScores));
 
-
-				
+			// console.log(friendScores);
+			picturePush(bestFriendName, bestFriendPic);
 		});
-		var modal = document.getElementById("my-modal");
-		var btn = document.getElementById("test-sub");
-		var span = document.getElementsByClassName("close")[0];
 
-		btn.onclick = function() {
-			modal.style.display = "block";
-		}
-		span.onclick = function() {
+
+
+
+
+
+	});
+
+
+
+function picturePush(name, photo) {
+	$("#friend-name").text(name);
+	$("#friend-pic").attr('src', photo);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//Modal Stuffs
+	var modal = document.getElementById("my-modal");
+	var btn = document.getElementById("test-sub");
+	var span = document.getElementsByClassName("close")[0];
+
+	btn.onclick = function () {
+		modal.style.display = "block";
+	}
+	span.onclick = function () {
+		modal.style.display = "none";
+	}
+	window.onclick = function (event) {
+		if (event.target == modal) {
 			modal.style.display = "none";
 		}
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-}
-	</script>
+	}
+</script>
+
 </html>
