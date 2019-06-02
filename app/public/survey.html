@@ -6,27 +6,25 @@
 	<meta char="utf-8">
 	<title>Friend Finder Survey</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 </head>
 
 <body>
 	<div class="jumbotron">
-		<h1 class="display-4">Friend Finder Survey</h1>
-		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-			featured
-			content or information.</p>
+		<h1 class="display-4"><i class="fas fa-users"></i> Friend Finder Survey</h1>
 		<hr class="my-4">
-		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-		<a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
+		<p class="lead">5 questions, name and a picture. That's all you need and you'll find who just might be your best friend, well... If you lived in a virtual world...</p>
+		<a class="btn btn-success btn-lg" href="./home" role="button">Go Home</a>
 	</div>
 	<div class="input-space">
-		<label for="exampleInputEmail1">Name</label>
-		<input type="input" class="form-control" id="name-input" placeholder="John Doe">
-		<label for="exampleInputPassword1">Picture</label>
-		<input type="input" class="form-control" id="picture-link-input" placeholder="Paste picture link here">
-
+		<div class="q-holder">
+			<label for="exampleInputEmail1">Name</label>
+			<input type="input" class="form-control" id="name-input" placeholder="John Doe">
+			<label for="exampleInputPassword1">Picture</label>
+			<input type="input" class="form-control" id="picture-link-input" placeholder="Paste picture link here">
+		</div>
 	<br>
 
 	<div class="q-holder">
@@ -39,7 +37,8 @@
 			<option>4</option>
 			<option>5 (Strongly Agree)</option>
 		</select>
-	</div>
+		<br>
+	</div>	
 	<div class="q-holder">
 		<h2>Question 2</h2>
 		<p>Generally speaking, you rely more on your experience than your imagination.</p>
@@ -50,6 +49,7 @@
 			<option>4</option>
 			<option>5 (Strongly Agree)</option>
 		</select>
+		<br>
 	</div>
 	<div class="q-holder">
 		<h2>Question 3</h2>
@@ -61,6 +61,7 @@
 			<option>4</option>
 			<option>5 (Strongly Agree)</option>
 		</select>
+		<br>
 	</div>
 	<div class="q-holder">
 		<h2>Question 4</h2>
@@ -72,6 +73,7 @@
 			<option>4</option>
 			<option>5 (Strongly Agree)</option>
 		</select>
+		<br>
 	</div>
 	<div class="q-holder">
 		<h2>Question 5</h2>
@@ -105,8 +107,14 @@ body {
 	color: white;
 }
 
+img {
+	max-width: 500px;
+	max-height: 600px;
+}
 span {
 	color: black;
+	font-size: 48px;
+	font-weight: 600;
 }
 
 hr {border-color: white;}
@@ -114,7 +122,18 @@ hr {border-color: white;}
 .jumbotron {
 	background-color: rgb(76, 46, 124);
 }
-.INPUT-SPACE {margin: auto 200px; width:900px;}
+
+.input-space {margin: auto 200px; width:900px;}
+
+#test-sub {
+	position: fixed;
+	bottom: 100px;
+	left: 50px;
+	width: 150px;
+	height: 75px;
+	font-size: 40px;
+}
+
 .q-holder{margin: auto 200px; width:900px;}
 	/* The Modal (background) */
 	.modal {
@@ -141,7 +160,7 @@ hr {border-color: white;}
 	/* Modal Content/Box */
 	.modal-content {
 		background-color: #fefefe;
-		margin: 15% auto;
+		margin: 10% auto;
 		/* 15% from the top and centered */
 		padding: 20px;
 		border: 1px solid #888;
@@ -166,6 +185,7 @@ hr {border-color: white;}
 </style>
 
 <script>
+		var attempts = 0;
 	$("#test-sub").on("click", function (event) {
 		event.preventDefault();
 		var friendName = "";
@@ -188,6 +208,9 @@ hr {border-color: white;}
 
 		console.log(userAnswers);
 
+	
+			attempts = attempts + 1;
+	
 		$.post("/api/friends", userAnswers, function (data) {
 			var userScores = userAnswers.scores;
 			var userTotal = 0;
@@ -200,10 +223,10 @@ hr {border-color: white;}
 
 			var friendScores = [];
 			//Loop through friends list
-			for (var i = 0; i < data.length; i++) {
+			for (var i = 0; i < data.length - attempts; i++) {
 				var totalScore = 0;
 				//loop through firends[i] scores list to add all of them together
-				for (var j = 0; j < data[i].scores.length - 1; j++) {
+				for (var j = 0; j < data[i].scores.length; j++) {
 					parsedScore = parseInt(data[i].scores[j]);;
 					totalScore = totalScore + parsedScore;
 				}
@@ -238,16 +261,18 @@ hr {border-color: white;}
 			console.log(bestFriendPic);
 			console.log("bestIndex: " + bestFriendIndex)
 			console.log(bestFriendInfo);
-			// array = [2, 42, 82, 122, 162, 202, 242, 282, 322, 362];
-			// number = 40;
+
 			console.log("----diff vv")
 			console.log(closest(userTotal, friendScores));
-
-			// console.log(friendScores);
+			console.log("pic vvv")
+			console.log(bestFriendPic);
+			console.log(bestFriendName);
 			picturePush(bestFriendName, bestFriendPic);
+			console.log("ATTEMPTS: " + attempts);
 		});
-
-
+		
+	
+		
 
 
 
